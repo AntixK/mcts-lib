@@ -2,7 +2,7 @@
 
 class Tile {
 
-    constructor(pos, colour, size = 25, id = null) {
+    constructor(pos, colour, size = TILE_SIZE, id = null) {
 
         this.id = id;
         this.pos = pos.copy();
@@ -20,6 +20,7 @@ class Tile {
 
         this.colour = colour;
         this.shade = [];
+
         for (let c of this.colour) {
             this.shade.push(c - 45);
         }

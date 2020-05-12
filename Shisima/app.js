@@ -42,6 +42,8 @@ function draw() {
         textSize(32);
         textAlign(CENTER, CENTER);
         text('Player ' + w + ' Wins!', CANVAS_WIDTH / 2, 70);
+        noLoop();
+
     }
 }
 
@@ -58,4 +60,6 @@ function restart() {
     game = new Shisima(ai_algo);
     game._reset_canvas();
     game._render();
+
+    loop();
 }

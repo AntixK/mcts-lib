@@ -2,7 +2,7 @@
 
 class Disk {
 
-    constructor(pos, colour, radius = 75, id = null) {
+    constructor(pos, colour, radius = DISK_RADIUS, id = null) {
 
         this.id = id;
         this.pos = pos.copy();

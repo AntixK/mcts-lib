@@ -2,7 +2,7 @@
 
 class Marble {
 
-    constructor(pos, colour, radius = 75, id = null) {
+    constructor(pos, colour, radius = MARBLE_RADIUS, id = null) {
 
         this.id = id;
         this.pos = pos.copy();
@@ -86,7 +86,7 @@ class Marble {
         fill(this.colour);
         circle(this.pos.x, this.pos.y, this.radius);
         fill(255);
-        circle(this.pos.x + 5, this.pos.y - 10, 15);
+        circle(this.pos.x + 5, this.pos.y - 7, 13);
     }
 
 }

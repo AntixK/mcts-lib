@@ -1,5 +1,7 @@
 "use strict"
 
+// CANVAS_WIDTH = 700;
+// CANVAS_HEIGHT = 700;
 
 class Shisima extends AbstractStrategyGame {
 
@@ -19,7 +21,7 @@ class Shisima extends AbstractStrategyGame {
     _reset_canvas() {
         let cnv = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
         // Position the canvas to the centre of the screen.
-        cnv.position((SCREEN_WIDTH - CANVAS_WIDTH) / 2, 110);
+        cnv.position((SCREEN_WIDTH - CANVAS_WIDTH) / 2, 90);
         background(BGN_COLOUR);
 
         // Construct the board

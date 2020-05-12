@@ -1,3 +1,3 @@
 mcts-lib
 
-https://antixk.github.io/mcts-lib/Shisima.html
+https://antixk.github.io/mcts-lib/Shisima/Shisima.html
