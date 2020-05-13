@@ -44,7 +44,7 @@ class Shisima extends AbstractStrategyGame {
 
     }
 
-    _get_moves_for_player(id) {
+    _get_moves_for_player(id) { // id here is piece id
         let neighbours = this.board._neighbours(id);
 
 

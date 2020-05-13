@@ -8,7 +8,10 @@ function setup() {
     cnv.style('display', 'block');
 
     background(51);
-    g = new Grid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+    // g = new Grid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+    // g._render();
+
+    g = new HexGrid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
     g._render();
 
     let d = new Disk(g.cells[1],

@@ -6,21 +6,13 @@ class RandomAI {
 
         let all_possible_moves = [];
 
-        for (let p of game.curr_player.pieces) {
-            let possible_moves = game._get_moves_for_player(p.id);
+        all_possible_moves = game._get_moves_for_state(game.curr_state);
 
-            for (let m of possible_moves) {
-                all_possible_moves.push({
-                    pieceid: p.id,
-                    cellid: m
-                })
-            }
-
-        }
+        console.log(all_possible_moves);
 
         let random_move = all_possible_moves[Math.floor(Math.random() *
             all_possible_moves.length)];
 
-        return new Move(random_move);
+        return random_move;
     }
 }

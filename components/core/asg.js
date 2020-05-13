@@ -59,7 +59,6 @@ class AbstractStrategyGame {
 
 
     _get_next_state(state, move) {
-
         let new_player = 1 - state.player_id;
 
         let new_history = state.move_history.slice();
@@ -67,10 +66,14 @@ class AbstractStrategyGame {
 
         // console.log(state.board_state);
         let curr_move = move.move;
+
         let new_board_state = state.board_state.slice();
 
         new_board_state[curr_move.cellid] = state.player_id;
-        new_board_state[curr_move.pieceid] = null;
+
+        if (curr_move.pieceid != null) {
+            new_board_state[curr_move.pieceid] = null;
+        }
 
         return new State(new_board_state, new_player, new_history);
 
@@ -79,10 +82,6 @@ class AbstractStrategyGame {
 
     /* Abstract Functions (To be implemted by the user) */
     /* ================================================= */
-
-    _get_moves_for_player(id) {
-        console.error("Not Implemented");
-    }
 
     __get_moves_for_state(state) {
         console.error("Not Implemented");
