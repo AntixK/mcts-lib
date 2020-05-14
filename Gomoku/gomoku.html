@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gomoku</title>
+    <style>
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            /* This centers our sketch horizontally. */
+            justify-content: center;
+            /* This centers our sketch vertically. */
+            align-items: center;
+            font-family: 'Montserrat';
+            font-size: 22px;
+            /* fallback for old browsers */
+            background: #F6F8FF;
+            /* Chrome 10-25, Safari 5.1-6 */
+            /* background: -webkit-linear-gradient(to bottom, #F6F8FF, #7c8b97) fixed no-repeat;
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /* background: linear-gradient(to bottom, #7c8b97, #F6F8FF) fixed no-repeat;
+            */
+        }
+        
+        .button {
+            background: #15d798;
+            border-radius: 500px;
+            border: none;
+            outline: none;
+            width: 150px;
+            height: 69px;
+            color: #ffffff;
+            cursor: pointer;
+            font: 'Montserrat';
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .button:hover {
+            background-color: #3ad8a6
+        }
+        
+        .radio {
+            font-size: 22px;
+            line-height: 45px;
+            display: inline-block;
+            vertical-align: top;
+            cursor: pointer;
+            color: #6e738f;
+        }
+    </style>
+    <script src="../lib/p5.js"></script>
+    <script src="../lib/addons/p5.sound.min.js"></script>
+
+    <script src="../components/piece/disk.js"></script>
+    <script src="../components/piece/marble.js"></script>
+    <script src="../components/piece/tile.js"></script>
+
+    <script src="../components/board/polygon.js"></script>
+    <script src="../components/board/radialpoly.js"></script>
+    <script src="../components/board/grid.js"></script>
+    <script src="../components/board/hexgrid.js"></script>
+    <script src="../components/board/cells.js"></script>
+
+
+    <script src="../components/core/asg.js"></script>
+    <script src="../components/core/humanplayer.js"></script>
+    <script src="../components/core/aiplayer.js"></script>
+
+    <script src="../components/core/state.js"></script>
+    <script src="../components/core/move.js"></script>
+
+    <script src="../components/ai/randomai.js"></script>
+    <script src="../components/metadata.js"></script>
+    <script src="../components/ai/mcts.js"></script>
+
+
+    <script src="gomoku.js"></script>
+    <script src="mouse_events.js"></script>
+
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <h1 style="font-size:60px;text-align:center;color:#343957;">Gomoku</h1>
+
+    <!-- <button class="button" style="position: fixed;left: 450px; top:700px;" onclick="restart_game()">Restart</button> -->
+
+</body>
+
+</html>

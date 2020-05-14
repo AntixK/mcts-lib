@@ -22,9 +22,16 @@ class AIPlayer {
 
         move = move.move;
 
-        for (let p of this.pieces) {
-            if (p.id == move.pieceid) {
-                p._set_pos(game.board.cells[move.cellid], move.cellid);
+        if (move.pieceid === null) { // Handle cases where pieces are only placed
+            this.pieces.push(new Marble(game.board.cells[move.cellid].pos,
+                PLAYER_COLOURS['P'],
+                DISK_RADIUS));
+
+        } else { // Handle cases where the pieces are only moved.
+            for (let p of this.pieces) {
+                if (p.id == move.pieceid) {
+                    p._set_pos(game.board.cells[move.cellid], move.cellid);
+                }
             }
         }
 

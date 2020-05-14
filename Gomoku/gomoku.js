@@ -1,10 +1,10 @@
 "use strict"
 
 
-class Yavalath extends AbstractStrategyGame {
+class Gomoku extends AbstractStrategyGame {
 
     constructor(ai = UCT) {
-        let state = [...Array(61)].map((x, i) => null);
+        let state = [...Array(225)].map((x, i) => null);
 
         super([new HumanPlayer(), new AIPlayer(new ai())], state);
 
@@ -18,7 +18,7 @@ class Yavalath extends AbstractStrategyGame {
         cnv.position((SCREEN_WIDTH - CANVAS_WIDTH) / 2, 90);
         background(BGN_COLOUR);
 
-        this.board = new HexGrid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+        this.board = new Grid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
 
     }
 
@@ -45,6 +45,7 @@ class Yavalath extends AbstractStrategyGame {
         if (null_id === -1) {
             return 'No one';
         }
+
 
 
     }

@@ -17,6 +17,8 @@ const HEXGRID_SIZE = 75;
 
 const HEXCELL_SIZE = 37;
 const RINGCELL_SIZE = 68;
+const POINTCELL_SIZE = 10;
+const DISKCELL_SIZE = 45;
 
 
 const PLAYER_COLOURS = {

@@ -1,9 +1,11 @@
 'use strict';
 
 
+
 function mouseMoved() {
     game.board._hovered();
 }
+
 
 function mouseClicked() {
 
@@ -20,7 +22,9 @@ function mouseClicked() {
             game.board.cells[cellid].pos.x,
             game.board.cells[cellid].pos.y);
 
-        if (d < game.board.size / 3) {
+
+
+        if (d < game.board.size / 2) {
             /*
             piceID is only required for games where a piece is moved from one to another.
             In other placement oriented games, pieceid is null;

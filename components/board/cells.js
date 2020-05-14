@@ -1,5 +1,55 @@
 'use strict';
 
+class PointCell {
+    constructor(pos, size = POINTCELL_SIZE, colour = 255) {
+        this.pos = pos;
+        this.size = size;
+        this.colour = colour;
+    }
+
+    _set_size(size) {
+
+        this.size = size;
+    }
+
+    _render() {
+        stroke(this.colour);
+        strokeWeight(this.size);
+        point(this.pos.x, this.pos.y);
+    }
+}
+
+/* ======================================================================== */
+
+class DiskCell {
+    constructor(pos, size = DISKCELL_SIZE, colour = 255) {
+        this.pos = pos;
+        this.size = size;
+        this.colour = colour;
+
+        this.shade = 75;
+    }
+
+    _set_size(size) {
+
+        this.size = size;
+    }
+
+    _render() {
+        noStroke();
+        fill(this.colour);
+        circle(this.pos.x, this.pos.y, this.size);
+
+        fill(this.shade);
+        circle(this.pos.x, this.pos.y, this.size - 10);
+
+        fill(this.colour);
+        circle(this.pos.x + 5, this.pos.y, this.size - 10);
+    }
+
+}
+
+/* ======================================================================== */
 
 class RingCell {
     constructor(pos, size = RINGCELL_SIZE, colour = 255) {
@@ -23,6 +73,7 @@ class RingCell {
     }
 }
 
+/* ======================================================================== */
 
 class HexCell {
     constructor(pos, size = HEXCELL_SIZE, colour = 255) {
@@ -56,3 +107,5 @@ class HexCell {
         endShape(CLOSE);
     }
 }
+
+/* ======================================================================== */
