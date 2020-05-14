@@ -13,7 +13,10 @@ const MARBLE_RADIUS = 45; //CANVAS_HEIGHT * 60 / 800;
 const TILE_SIZE = 18; //CANVAS_HEIGHT * 35 / 1000;
 
 const GRID_SIZE = 50;
-const HEXGRID_SIZE = 65;
+const HEXGRID_SIZE = 75;
+
+const HEXCELL_SIZE = 37;
+const RINGCELL_SIZE = 68;
 
 
 const PLAYER_COLOURS = {

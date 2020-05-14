@@ -5,6 +5,9 @@ class HexGrid {
     constructor(posx, posy, size = HEXGRID_SIZE, side_length = 5) {
 
         this.row_length = [5, 6, 7, 8, 9, 8, 7, 6, 5];
+
+        // useful for analysing neighbouring cells
+        this.cum_row_length = [5, 11, 18, 26, 35, 43, 50, 56, 61];
         this.cells = [];
 
         this.size = size;
@@ -21,7 +24,8 @@ class HexGrid {
             let r = this.row_length[j];
 
             for (let i = 0; i < r; ++i) {
-                this.cells.push(createVector(x, y));
+                this.cells.push(new HexCell(
+                    createVector(x, y)));
                 y += size;
             }
 
@@ -38,19 +42,57 @@ class HexGrid {
             }
         }
 
+        this.is_hover = false;
+
     }
 
+    _get_neighbour(cellid, n_type) {
+
+        // North
+        if (n_type === 'N') {
+
+            if (typeof cellid - 1 === 'undefined') {
+                return null;
+            } else {
+                return cellid - 1;
+            }
+        }
+
+        // South
+        if (n_type === 'S') {
+
+            if (typeof cellid + 1 === 'undefined') {
+                return null;
+            } else {
+                return cellid + 1;
+            }
+        }
+    }
+
+    _hovered() {
+
+        for (let cell of this.cells) {
+
+            let d = dist(mouseX, mouseY, cell.pos.x, cell.pos.y);
+
+            if (d < HEXGRID_SIZE / 2) {
+                cell._set_size(HEXCELL_SIZE + 4);
+                this.is_hover = true;
+                return this.is_hover;
+            } else {
+                cell._set_size(HEXCELL_SIZE);
+                this.is_hover = false;
+            }
+        }
+        return this.is_hover;
+    }
 
     _render() {
         noStroke();
         for (let v of this.cells) {
 
             if (v !== null) {
-                fill(255);
-                circle(v.x, v.y, this.size - 3);
-
-                fill(BGN_COLOUR);
-                circle(v.x, v.y, 25);
+                v._render();
             }
 
         }

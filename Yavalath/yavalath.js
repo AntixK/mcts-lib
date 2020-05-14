@@ -38,6 +38,11 @@ class Yavalath extends AbstractStrategyGame {
         return all_possible_moves;
     }
 
+    _get_winner(state) {
+
+
+    }
+
     _render() {
         background(BGN_COLOUR);
         this.board._render();

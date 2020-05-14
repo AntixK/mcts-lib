@@ -1,5 +1,10 @@
 'use strict';
 
+
+function mouseMoved() {
+    game.board._hovered();
+}
+
 function mouseClicked() {
 
     // let moveids = game._get_moves_for_player(piece.id);
@@ -8,8 +13,8 @@ function mouseClicked() {
     for (let cellid of moveids) {
         let d = dist(mouseX,
             mouseY,
-            game.board.cells[cellid].x,
-            game.board.cells[cellid].y);
+            game.board.cells[cellid].pos.x,
+            game.board.cells[cellid].pos.y);
 
         if (d < game.board.size / 3) {
             /*
@@ -20,7 +25,7 @@ function mouseClicked() {
 
             game.curr_state = game._get_next_state(game.curr_state, move);
 
-            game.curr_player.pieces.push(new Marble(game.board.cells[cellid],
+            game.curr_player.pieces.push(new Marble(game.board.cells[cellid].pos,
                 PLAYER_COLOURS['C'],
                 DISK_RADIUS))
 

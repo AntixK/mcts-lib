@@ -79,44 +79,6 @@ class Shisima extends AbstractStrategyGame {
 
     }
 
-    _is_over() {
-        // Player 1
-
-        let ids = [];
-        for (let p of this.players[0].pieces) {
-            /* Best way to find the index from an array of objects */
-            let id = this.board.cells.findIndex(o => o.x === p.pos.x && o.y === p.pos.y)
-            ids.push(id);
-        }
-
-        // console.log(ids);
-        if (this.arrayContains(ids, [0, 1, 5]) ||
-            this.arrayContains(ids, [0, 2, 6]) ||
-            this.arrayContains(ids, [0, 3, 7]) ||
-            this.arrayContains(ids, [0, 4, 8])) {
-
-            return 1;
-        }
-
-        // player 2
-        ids = []
-        for (let p of this.players[1].pieces) {
-            let id = this.board.cells.findIndex(o => o.x === p.pos.x && o.y === p.pos.y)
-            ids.push(id);
-        }
-
-        // console.log(ids);
-        if (this.arrayContains(ids, [0, 1, 5]) ||
-            this.arrayContains(ids, [0, 2, 6]) ||
-            this.arrayContains(ids, [0, 3, 7]) ||
-            this.arrayContains(ids, [0, 4, 8])) {
-            return 2;
-        }
-
-        return false;
-
-    }
-
     _get_winner(state) {
 
         let board = state.board_state;

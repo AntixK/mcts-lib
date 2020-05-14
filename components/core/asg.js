@@ -33,9 +33,10 @@ class AbstractStrategyGame {
 
         this._render();
 
-        if (this._is_over()) {
-            console.log(this._is_over(), " is the winner")
-            return this._is_over();
+        let w = this._is_over();
+        if (w) {
+            console.log(w, " is the winner")
+            return w;
         } else {
 
             this._make_move();
@@ -79,6 +80,14 @@ class AbstractStrategyGame {
 
     }
 
+    _is_over() {
+
+        let w = this._get_winner(this.curr_state)
+
+        if (w === null) { return false } else return w + 1;
+
+    }
+
 
     /* Abstract Functions (To be implemted by the user) */
     /* ================================================= */
@@ -86,10 +95,6 @@ class AbstractStrategyGame {
     __get_moves_for_state(state) {
         console.error("Not Implemented");
 
-    }
-
-    _is_over() {
-        console.error("Not Implemented");
     }
 
     _get_winner(state) {
