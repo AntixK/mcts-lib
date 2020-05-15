@@ -1,13 +1,13 @@
 "use strict"
 
-const BOARD_SIZE = 5;
+const BOARD_SIZE = 15;
 
 class Gomoku extends AbstractStrategyGame {
 
     constructor(ai = UCT) {
         let state = [...Array(BOARD_SIZE * BOARD_SIZE)].map((x, i) => null);
 
-        super([new HumanPlayer(), new AIPlayer(new ai(), , PLAYER_COLOURS['P'])], state);
+        super([new HumanPlayer(), new AIPlayer(new ai(), PLAYER_COLOURS['P'])], state);
 
         this.board = [];
         this.curr_player.piece_moved = false;

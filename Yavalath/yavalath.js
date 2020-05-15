@@ -6,7 +6,7 @@ class Yavalath extends AbstractStrategyGame {
     constructor(ai = UCT) {
         let state = [...Array(61)].map((x, i) => null);
 
-        super([new HumanPlayer(), new AIPlayer(new ai())], state);
+        super([new HumanPlayer(), new AIPlayer(new ai(), PLAYER_COLOURS['Y'])], state);
 
         this.board = [];
         this.curr_player.piece_moved = false;
