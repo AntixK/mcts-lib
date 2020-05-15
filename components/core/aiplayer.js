@@ -3,10 +3,11 @@
 
 class AIPlayer {
 
-    constructor(ai_algo) {
+    constructor(ai_algo, colour = null) {
         this.ai_algo = ai_algo;
         this.pieces = [];
         this.piece_moved = false;
+        this.colour = colour;
     }
 
     _make_move(game) {
@@ -24,7 +25,7 @@ class AIPlayer {
 
         if (move.pieceid === null) { // Handle cases where pieces are only placed
             this.pieces.push(new Marble(game.board.cells[move.cellid].pos,
-                PLAYER_COLOURS['P'],
+                this.colour,
                 DISK_RADIUS));
 
         } else { // Handle cases where the pieces are only moved.

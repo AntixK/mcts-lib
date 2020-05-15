@@ -14,8 +14,13 @@ const TILE_SIZE = 18; //CANVAS_HEIGHT * 35 / 1000;
 
 const GRID_SIZE = 50;
 const HEXGRID_SIZE = 75;
+const HEXGRID_SIZE_SMALL = 45;
+
 
 const HEXCELL_SIZE = 37;
+const HEXCELL_SIZE_SMALL = 25;
+
+
 const RINGCELL_SIZE = 68;
 const POINTCELL_SIZE = 10;
 const DISKCELL_SIZE = 45;
@@ -26,5 +31,6 @@ const PLAYER_COLOURS = {
     Y: [255, 204, 102],
     C: [18, 151, 147],
     B: [57, 118, 179],
-    R: [224, 79, 54]
+    R1: [224, 79, 54],
+    R: [250, 100, 100]
 }

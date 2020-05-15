@@ -1,13 +1,13 @@
 "use strict"
 
-const BOARD_SIZE = 5;
+const BOARD_SIZE = 11;
 
-class Gomoku extends AbstractStrategyGame {
+class Hex extends AbstractStrategyGame {
 
     constructor(ai = UCT) {
         let state = [...Array(BOARD_SIZE * BOARD_SIZE)].map((x, i) => null);
 
-        super([new HumanPlayer(), new AIPlayer(new ai(), , PLAYER_COLOURS['P'])], state);
+        super([new HumanPlayer(), new AIPlayer(new ai(), PLAYER_COLOURS['Y'])], state);
 
         this.board = [];
         this.curr_player.piece_moved = false;
@@ -19,9 +19,7 @@ class Gomoku extends AbstractStrategyGame {
         cnv.position((SCREEN_WIDTH - CANVAS_WIDTH) / 2, 90);
         background(BGN_COLOUR);
 
-        this.board = new Grid(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2,
-            GRID_SIZE, BOARD_SIZE, BOARD_SIZE);
-
+        this.board = new HexRhombus(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
     }
 
     _get_moves_for_state(state) {
@@ -49,8 +47,6 @@ class Gomoku extends AbstractStrategyGame {
         if (null_id === -1) {
             return 'No one';
         }
-
-
 
     }
 

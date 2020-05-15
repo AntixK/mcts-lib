@@ -38,10 +38,15 @@ function setup() {
 function draw() {
     let w = game.play();
     if (w) {
+        // overlay
         fill(255);
+        rect(0, 30, CANVAS_WIDTH, 70);
+
+        fill(0);
         textSize(32);
         textAlign(CENTER, CENTER);
         text('Player ' + w + ' Wins!', CANVAS_WIDTH / 2, 70);
+
         noLoop();
 
     }

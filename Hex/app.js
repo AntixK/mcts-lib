@@ -29,7 +29,7 @@ function setup() {
         ai_algo = UCT;
     }
 
-    game = new Shisima(ai_algo);
+    game = new Hex(ai_algo);
     game._reset_canvas();
     game._render();
 
@@ -38,9 +38,6 @@ function setup() {
 function draw() {
     let w = game.play();
     if (w) {
-
-        // background(255, 155);
-
         // overlay
         fill(255);
         rect(0, 30, CANVAS_WIDTH, 70);
@@ -65,7 +62,7 @@ function restart() {
         ai_algo = UCT;
     }
 
-    game = new Shisima(ai_algo);
+    game = new Hex(ai_algo);
     game._reset_canvas();
     game._render();
 
