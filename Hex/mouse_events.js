@@ -23,12 +23,12 @@ function mouseClicked() {
             game.board.cells[cellid].pos.y);
 
 
-
         if (d < game.board.size / 2) {
             /*
             piceID is only required for games where a piece is moved from one to another.
             In other placement oriented games, pieceid is null;
              */
+
             let move = new Move({ pieceid: null, cellid: cellid });
 
             game.curr_state = game._get_next_state(game.curr_state, move);
@@ -38,6 +38,7 @@ function mouseClicked() {
                 DISK_RADIUS));
 
             game.curr_player.piece_moved = true;
+
         }
     }
 

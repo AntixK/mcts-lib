@@ -76,7 +76,7 @@ class HexGrid {
             let d = dist(mouseX, mouseY, cell.pos.x, cell.pos.y);
 
             if (d < HEXGRID_SIZE / 2) {
-                cell._set_size(HEXCELL_SIZE + 4);
+                cell._set_size(HEXCELL_SIZE + 2);
                 this.is_hover = true;
                 return this.is_hover;
             } else {

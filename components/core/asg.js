@@ -82,7 +82,7 @@ class AbstractStrategyGame {
 
     _is_over() {
 
-        let w = this._get_winner(this.curr_state)
+        let w = this._get_winner(this.curr_state);
 
         if (w === null) { return false } else return w + 1;
 

@@ -2,7 +2,7 @@
 
 class HexRhombus {
 
-    constructor(posx, posy, size = 45, side_length = 11) {
+    constructor(posx, posy, size = HEXGRID_SIZE_SMALL, side_length = 11) {
 
         if (side_length > 11) {
             console.error('side_length must be <= 11');
@@ -34,6 +34,69 @@ class HexRhombus {
         }
     }
 
+    _ind2rc(ind) {
+        return [ind % this.side_length, Math.floor(ind / this.side_length)]
+    }
+
+    _rc2ind(row, col) {
+        if (row >= 0 && col >= 0) {
+            return (col * this.side_length) + row;
+        }
+    }
+
+    _neighbours(id) {
+
+        let neighbours = [];
+        let [row, col] = this._ind2rc(id);
+
+        // North
+        let i = this._rc2ind(row - 1, col);
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i);
+
+        }
+
+        // South
+        i = this._rc2ind(row + 1, col);
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i);
+
+        }
+
+        // North West
+        i = this._rc2ind(row - 1, col - 1);
+
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i);
+        }
+
+        // South West
+        i = this._rc2ind(row, col - 1);
+
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i);
+        }
+
+        // North East
+        i = this._rc2ind(row, col + 1);
+
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i);
+
+        }
+
+        // South East
+        i = this._rc2ind(row + 1, col + 1);
+
+        if (typeof this.cells[i] != 'undefined') {
+            neighbours.push(i)
+
+        }
+
+        return neighbours;
+
+    }
+
     _hovered() {
 
         for (let cell of this.cells) {
@@ -41,7 +104,7 @@ class HexRhombus {
             let d = dist(mouseX, mouseY, cell.pos.x, cell.pos.y);
 
             if (d < HEXGRID_SIZE_SMALL / 2) {
-                cell._set_size(HEXCELL_SIZE_SMALL + 4);
+                cell._set_size(HEXCELL_SIZE_SMALL + 3);
                 this.is_hover = true;
                 return this.is_hover;
             } else {
@@ -51,7 +114,6 @@ class HexRhombus {
         }
         return this.is_hover;
     }
-
 
     _render() {
 
