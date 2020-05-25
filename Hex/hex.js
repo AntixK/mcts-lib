@@ -4,10 +4,20 @@ const BOARD_SIZE = 9;
 
 class Hex extends AbstractStrategyGame {
 
-    constructor(ai = UCT) {
+    constructor(ai = UCT, human_first = true) {
         let state = [...Array(BOARD_SIZE * BOARD_SIZE)].map((x, i) => null);
 
-        super([new HumanPlayer(), new AIPlayer(new ai(), PLAYER_COLOURS['Y'])], state);
+        if (human_first) {
+            super([new HumanPlayer(), new AIPlayer(new ai(), PLAYER_COLOURS['Y'])], state);
+
+            this.vert_player_id = 1; // Required to check for winner later
+            this.horz_player_id = 0;
+        } else {
+            super([new AIPlayer(new ai(), PLAYER_COLOURS['Y']), new HumanPlayer()], state);
+
+            this.vert_player_id = 0; // Required to check for winner later
+            this.horz_player_id = 1;
+        }
 
         this.board = [];
         this.curr_player.piece_moved = false;
@@ -98,13 +108,13 @@ class Hex extends AbstractStrategyGame {
             Load up the initial state only if theres any 
             piece in the top row. Speeds up the process.
             */
-            if (state.board_state[i * BOARD_SIZE] === 1) {
+            if (state.board_state[i * BOARD_SIZE] === this.vert_player_id) {
                 queue.push(i * BOARD_SIZE);
             }
         }
 
         // Run DFS for player 2
-        let w = this._DFS(queue, final_ids, state, 1);
+        let w = this._DFS(queue, final_ids, state, this.vert_player_id);
 
         if (w === null) {
             // player 1
@@ -123,13 +133,13 @@ class Hex extends AbstractStrategyGame {
                 Load up the initial state only if theres any 
                 piece in the top row. Speeds up the process.
                 */
-                if (state.board_state[i] === 0) {
+                if (state.board_state[i] === this.horz_player_id) {
                     queue.push(i);
                 }
             }
 
             // Run DFS for player 1
-            w = this._DFS(queue, final_ids, state, 0);
+            w = this._DFS(queue, final_ids, state, this.horz_player_id);
         }
 
         return w;

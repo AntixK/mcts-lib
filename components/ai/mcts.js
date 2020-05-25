@@ -33,7 +33,7 @@ class UCT {
     }
 
     /** From given state, repeatedly run MCTS to build statistics. */
-    run(game, timeout = 3) {
+    run(game, timeout = 6) {
 
         let state = game.curr_state;
         this._make_node(state, game);
@@ -127,7 +127,7 @@ class UCT {
             // Parent's choice
             /*
             ===============================
-                MAKE CHANGE!!!!!! it is from 1-2 and not -1 , 1
+                MAKE CHANGE!!!!!! it is from 1-2 and not -1 , 1 Done! Chill!
             =============================  
 
             */
@@ -171,8 +171,8 @@ class UCT {
     _get_move(game) {
         this.run(game, 1);
 
-        // let stats = this.getStats(game.curr_state);
-        // console.log(stats);
+        let stats = this.getStats(game.curr_state);
+        console.log(stats);
 
         let best_move = this._get_best_move(game)
 
